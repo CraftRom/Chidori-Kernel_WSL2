@@ -33,9 +33,9 @@ echo -e "${txtbld}Username:${txtrst} $KBUILD_BUILD_USER"
 echo -e " "
 
 echo -e "$blue    \nStarting kernel compilation...\n $nocol"
-nice make  clean
-nice make  mrproper
-nice make -j$(nproc --all) 2>&1 | tee build.log
+mkdir -p out
+
+nice make -j$(nproc --all) O=out | tee build.log
 echo -e "$grn \n(i)          Completed build$nocol $red$((SECONDS / 60))$nocol $grn minute(s) and$nocol $red$((SECONDS % 60))$nocol $grn second(s) !$nocol"
 echo -e "$blue    \n             Install kernel.\n $nocol"
-cp -rf arch/x86/boot/bzImage /mnt/c/wsl2/basik
+cp -rf out/arch/x86/boot/bzImage /mnt/c/wsl_kernel
