@@ -21,7 +21,7 @@ KERN_VER=$(echo "$(make kernelversion)")
 
 export KBUILD_BUILD_USER=melles1991
 export KBUILD_BUILD_HOST=CraftRom-build
-export KCONFIG_CONFIG=Microsoft/config-chidori
+export KCONFIG_CONFIG=arch/x86/configs/chidori-x86_64_defconfig
 export ARCH=x86_64
 export SUBARCH=x86_64
 export KBUILD_CFLAGS="-Wno-maybe-uninitialized -Wno-memset-elt-size -Wno-duplicate-decl-specifier"
